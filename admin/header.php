@@ -76,9 +76,9 @@
         h1{
             color: blue;
         }
-        .form-group{
+        /* .form-group{
         margin: 10px 0px;
-        }
+        } */
         .form-button1{
             padding: 8px 30px;
             outline: none;
@@ -143,11 +143,11 @@
             <div class="main_menu header_position">
                 <nav>
                     <ul>
-                        <li><a href="index.php">Trang chủ</a></li>
+                        <li><a href="../index.php">Trang chủ</a></li>
                         <li><a href="index.php?act=adddm">Danh mục</a></li>
                         <li><a href="index.php?act=addsp">Sản phẩm</a></li>
-                        <li><a href="index.php?act=dskh">Khách hàng</a></li>
-                        <li><a href="index.php?act=dsdh">Đơn hàng</a></li>
+                        <li><a href="index.php?act=dskh">Tài khoản</a></li>
+                        <li><a href="index.php?act=listbill">Đơn hàng</a></li>
                         <li><a href="index.php?act=dsbl">Bình luận</a></li>
                         <li><a href="index.php?act=thongke">Thống kê</a></li>
                     </ul>
