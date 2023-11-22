@@ -6,8 +6,8 @@
                 <div class="col-12">
                     <div class="breadcrumb_content">
                         <ul>
-                            <li><a href="index.html">Trang chủ</a></li>
-                            <li>Đăng ký</li>
+                            <li><a href="index.php">Trang chủ</a></li>
+                            <li>Cập nhật tài khoản</li>
                         </ul>
                     </div>
                 </div>
