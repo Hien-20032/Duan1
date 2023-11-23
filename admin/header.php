@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.ico">
 
 
      <!-- CSS 
@@ -76,9 +76,9 @@
         h1{
             color: blue;
         }
-        .form-group{
+        /* .form-group{
         margin: 10px 0px;
-        }
+        } */
         .form-button1{
             padding: 8px 30px;
             outline: none;

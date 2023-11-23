@@ -17,14 +17,14 @@ function viewcart(){
         $tong+=$ttien; 
         $xoasp='<a href="index.php?act=delcart&idcart='.$i.'"><i class="fa fa-trash-o"></i></a>';
         echo '
-        <tbody>
+        <tbody>  
                     <tr>
                         <td class="product_remove">'.$xoasp.'</td>
                         <td class="product_thumb"><a href="#"><img src="'.$hinh.'" alt=""></a></td>
                         <td class="product_name"><a href="#">'.$cart[1].'</a></td>
                         <td class="product-price">'.$cart[3].'đ</td>
-                        <td class="product_quantity">'.$cart[4].'</td>
-                        <td class="product_total">'.$ttien.'</td>
+                        <td class="product_quantity"><input type="number" value="'.$cart[4].'"></td>
+                        <td class="product_total">'.$ttien.'đ</td>
                     </tr>
         </tbody>
         <table>
@@ -32,7 +32,7 @@ function viewcart(){
 </div>
 </div>
 </div>';
-$i+=1;
+$i++;
     } 
     echo '<div class="coupon_area">
                 <div class="row">
@@ -58,5 +58,30 @@ $i+=1;
                     </div>
                 </div>
             </div>';
+}
+
+function tongdonhang(){
+$tong=0;
+foreach ($_SESSION['mycart'] as $cart) {
+    $ttien=$cart[3]*$cart[4];
+    $tong+=$ttien;
+}
+return $tong;
+}
+
+function insert_bill($name,$email,$address,$tel,$pttt,$ngaydathang,$tongdonhang){
+    $sql="insert into bill(bill_name,bill_email,bill_address,bill_tel,bill_pttt,ngaydathang,total) values('$name','$email','$address','$tel','$pttt','$ngaydathang','$tongdonhang')";
+    return pdo_execute_return_lastInsertId($sql);
+}
+
+function insert_cart($iduser,$idpro,$img,$name,$price,$soluong,$thanhtien,$idbill){
+    $sql="insert into cart(iduser,idpro,img,name,price,soluong,thanhtien,idbill) values('$iduser','$idpro','$img','$name','$price','$soluong','$thanhtien','$idbill')";
+    return pdo_execute($sql);
+}
+
+function loadone_bill($id){
+    $sql="select * from bill where id= ".$id;
+    $bill=pdo_query_one($sql);
+    return $bill;
 }
 ?>

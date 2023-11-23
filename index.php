@@ -103,16 +103,14 @@
                     array_push($_SESSION['mycart'],$spadd);
                     
                 }
-                include "view/cart/viewcart.php";
+                include "view/sanpham.php";
                 break; 
             case 'delcart':
-                // $yourURL="index.php?act=viewcart";
-                if(isset($_GET['idcart'])){
-                    array_slice($_SESSION['mycart'],$_GET['idcart'],1); // Mảng xóa từng phần tử array_slice(mảng cần xóa,vị trí cần xóa,xóa bao nhiêu phần tử)
+                if(isset($_GET['idcart'])&&($_GET['idcart'])>=0){
+                    array_splice($_SESSION['mycart'],$_GET['idcart'],1); // Mảng xóa từng phần tử array_slice(mảng cần xóa,vị trí cần xóa,xóa bao nhiêu phần tử)
                 }else{
                     $_SESSION['mycart']=[];
                 }
-                // header("Location: index.php?act=viewcart");
                 echo ("<script>location.href='index.php?act=viewcart'</script>");
                 break;
 
@@ -120,6 +118,23 @@
                 include "view/cart/bill.php";
                 break;
             case 'billconfirm':
+                if(isset($_POST['tieptucdathang'])&&($_POST['tieptucdathang'])){
+                    $name=$_POST['name'];
+                    $email=$_POST['email'];
+                    $address=$_POST['address'];
+                    $tel=$_POST['tel'];
+                    $pttt=$_POST['pttt'];
+                    $ngaydathang=date('h:i:sa d/m/Y');
+                    $tongdonhang=tongdonhang();
+
+                    $idbill=insert_bill($name,$email,$address,$tel,$pttt,$ngaydathang,$tongdonhang);
+                    
+                    // insert into cart : $_SESSION['mycart'] & idbill
+                    foreach ($_SESSION['mycart'] as $cart) {
+                        insert_cart($_SESSION['user']['id'],$cart[0],$cart[2],$cart[1],$cart[3],$cart[4],$cart[5],$idbill);
+                    }
+                }
+                $bill=loadone_bill($idbill);
                 include "view/cart/billconfirm.php";
                 break;
                 

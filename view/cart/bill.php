@@ -75,7 +75,7 @@
             <div class="checkout_form">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <form action="#">
+                        <form action="index.php?act=billconfirm" method="post">
 
                         <?php
                         if(isset($_SESSION['user'])){
@@ -117,9 +117,6 @@
                                 <div class="col-12 mb-20">
                                     <label>Địa chỉ <span>*</span></label>
                                     <input placeholder="House number and street name" type="text" name="address" value="<?=$address?>">
-                                </div>
-                                <div class="col-12 mb-20">
-                                    <input placeholder="Apartment, suite, unit etc. (optional)" type="text">
                                 </div>
                                
                                 <div class="col-lg-6 mb-20">
@@ -231,33 +228,20 @@
                             <!-- Phương thức thanh toán -->
                             <div class="payment_method">
                                 <div class="panel-default">
-                                    <input id="payment" name="check_method" type="radio" data-target="createp_account" />
-                                    <label for="payment" data-bs-toggle="collapse" href="#method" aria-controls="method">Create an account?</label>
-
-                                    <div id="method" class="collapse one" data-parent="#accordion">
-                                        <div class="card-body1">
-                                            <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-                                        </div>
-                                    </div>
+                                    <input id="payment_defult" name="pttt" value="1" type="radio" data-target="createp_account" />
+                                    <label for="payment_defult" data-bs-toggle="collapse" href="#collapsedefult" aria-controls="collapsedefult">Thanh toán khi nhận hàng</label>
                                 </div>
                                 <div class="panel-default">
-                                    <input id="payment_defult" name="check_method" type="radio" data-target="createp_account" />
-                                    <label for="payment_defult" data-bs-toggle="collapse" href="#collapsedefult" aria-controls="collapsedefult">PayPal <img src="assets/img/icon/papyel.png" alt=""></label>
-
-                                    <div id="collapsedefult" class="collapse one" data-parent="#accordion">
-                                        <div class="card-body1">
-                                            <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                                        </div>
-                                    </div>
+                                    <input id="payment_defult" name="pttt" value="2" type="radio" data-target="createp_account" />
+                                    <label for="payment_defult" data-bs-toggle="collapse" href="#collapsedefult" aria-controls="collapsedefult">Thanh toán online</label>
                                 </div>
-                                
                             </div>
                             
                         </form>
                     </div>
                 </div>
                 <div class="form-group">
-                    <a href="index.php?act=billconfirm"><input class="form-button" type="button" value="TIẾP TỤC ĐẶT HÀNG"></a>
+                    <a href="index.php?act=billconfirm"><input class="form-button" type="button" value="TIẾP TỤC ĐẶT HÀNG" name="tieptucdathang"></a>
                 </div>
             </div>
         </div>

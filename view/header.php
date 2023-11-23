@@ -157,7 +157,7 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="top_right text-end">
                                 <ul>
-                                    <li class="top_links"><a href="#"><i class="ion-android-person"></i> My Account<i class="ion-ios-arrow-down"></i></a>
+                                    <li class="top_links"><a href="#"><i class="ion-android-person"></i> Tài khoản<i class="ion-ios-arrow-down"></i></a>
                                         <ul class="dropdown_links">      
                                             <li><a href="index.php?act=dangky">Đăng ký</a></li>
                                             <li><a href="index.php?act=dangnhap">Đăng nhập</a></li>
@@ -202,10 +202,10 @@
                             </div>
                             <div class="middel_right_info">
                                 <div class="header_wishlist">
-                                    <a href=""><span class="lnr lnr-heart"></span>Danh sách yêu thích </a>
+                                    <a href=""><span class="lnr lnr-heart"></span> </a>
                                 </div>
                                 <div class="mini_cart_wrapper">
-                                    <a href="index.php?act=viewcart"><span class="lnr lnr-cart"></span>Giỏ hàng </a>
+                                    <a href="index.php?act=viewcart"><span class="lnr lnr-cart"></span> </a>
                                 </div>
                             </div>
                         </div>
