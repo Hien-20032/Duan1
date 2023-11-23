@@ -2,6 +2,7 @@
 include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
+include "../model/taikhoan.php";
 include "header.php";
 //controller:nguoidieukhien
 
@@ -124,6 +125,16 @@ if (isset($_GET['act'])) {
             $listsanpham=loadall_sanpham();
             include "sanpham/list.php";
             break;
+        // Tài khoản
+        case 'dskh':
+            $listtaikhoan=loadall_taikhoan();
+            include "taikhoan/list.php";
+            break;
+        // đơn hàng
+        case 'listbill':
+            $listbill=loadall_bill(0);
+            include "bill/listbill.php";
+            break; 
 
         case 'dstk':
             $listtaikhoan=loadall_taikhoan();

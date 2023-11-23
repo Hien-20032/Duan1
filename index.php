@@ -118,6 +118,23 @@
                 include "view/cart/bill.php";
                 break;
             case 'billconfirm':
+                if(isset($_POST['tieptucdathang'])&&($_POST['tieptucdathang'])){
+                    $name=$_POST['name'];
+                    $email=$_POST['email'];
+                    $address=$_POST['address'];
+                    $tel=$_POST['tel'];
+                    $pttt=$_POST['pttt'];
+                    $ngaydathang=date('h:i:sa d/m/Y');
+                    $tongdonhang=tongdonhang();
+
+                    $idbill=insert_bill($name,$email,$address,$tel,$pttt,$ngaydathang,$tongdonhang);
+                    
+                    // insert into cart : $_SESSION['mycart'] & idbill
+                    foreach ($_SESSION['mycart'] as $cart) {
+                        insert_cart($_SESSION['user']['id'],$cart[0],$cart[2],$cart[1],$cart[3],$cart[4],$cart[5],$idbill);
+                    }
+                }
+                $bill=loadone_bill($idbill);
                 include "view/cart/billconfirm.php";
                 break;
                 
