@@ -114,7 +114,7 @@
                 <div class="col-12">
                     <div class="product_d_inner">
                                 <div class="reviews_wrapper">
-                                    <h2>1 review for Donec eu furniture</h2>
+                                    <h2>Bình luận</h2>
                                     <div class="reviews_comment_box">
                                         <div class="comment_thmb">
                                             <img src="assets/img/blog/comment2.jpg" alt="">
