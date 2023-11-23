@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.ico">
 
 
      <!-- CSS 
@@ -146,7 +146,7 @@
                         <li><a href="index.php">Trang chủ</a></li>
                         <li><a href="index.php?act=adddm">Danh mục</a></li>
                         <li><a href="index.php?act=addsp">Sản phẩm</a></li>
-                        <li><a href="index.php?act=dskh">Khách hàng</a></li>
+                        <li><a href="index.php?act=dstk">Tài khoản</a></li>
                         <li><a href="index.php?act=dsdh">Đơn hàng</a></li>
                         <li><a href="index.php?act=dsbl">Bình luận</a></li>
                         <li><a href="index.php?act=thongke">Thống kê</a></li>

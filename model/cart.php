@@ -9,14 +9,14 @@ function viewcart(){
         $tong+=$ttien; 
         $xoasp='<a href="index.php?act=delcart&idcart='.$i.'"><i class="fa fa-trash-o"></i></a>';
         echo '
-        <tbody>
+        <tbody>  
                     <tr>
                         <td class="product_remove">'.$xoasp.'</td>
                         <td class="product_thumb"><a href="#"><img src="'.$hinh.'" alt=""></a></td>
                         <td class="product_name"><a href="#">'.$cart[1].'</a></td>
                         <td class="product-price">'.$cart[3].'đ</td>
-                        <td class="product_quantity">'.$cart[4].'</td>
-                        <td class="product_total">'.$ttien.'</td>
+                        <td class="product_quantity"><input type="number" value="'.$cart[4].'"></td>
+                        <td class="product_total">'.$ttien.'đ</td>
                     </tr>
         </tbody>
         <table>
@@ -24,7 +24,7 @@ function viewcart(){
 </div>
 </div>
 </div>';
-$i+=1;
+$i++;
     } 
     echo '<div class="coupon_area">
                 <div class="row">

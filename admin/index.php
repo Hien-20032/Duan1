@@ -117,13 +117,23 @@ if (isset($_GET['act'])) {
                 } else {
 
                 }
-                update_sanpham($id,$iddm,$tensp,$giasp,$mota,$hinh);
+                update_sanpham($id,$iddm,$tensp,$giasp,$hinh, $mota);
                 $thongbao="Cập nhật thành công";
             }
             $listdanhmuc=loadall_danhmuc();
             $listsanpham=loadall_sanpham();
             include "sanpham/list.php";
             break;
+
+        case 'dstk':
+            $listtaikhoan=loadall_taikhoan();
+            include "taikhoan/list.php";
+            break;
+            // đơn hàng
+        case 'listbill':
+            $listbill=loadall_bill(0);
+            include "bill/listbill.php";
+            break; 
 
         default:
             include "home.php";

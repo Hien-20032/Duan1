@@ -118,9 +118,6 @@
                                     <label>Địa chỉ <span>*</span></label>
                                     <input placeholder="House number and street name" type="text" name="address" value="<?=$address?>">
                                 </div>
-                                <div class="col-12 mb-20">
-                                    <input placeholder="Apartment, suite, unit etc. (optional)" type="text">
-                                </div>
                                
                                 <div class="col-lg-6 mb-20">
                                     <label>Điện thoại<span>*</span></label>

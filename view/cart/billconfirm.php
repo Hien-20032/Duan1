@@ -152,7 +152,7 @@
                             echo '<tbody>
                                         <tr>
                                             <td>'.$cart[1].'<strong> × '.$cart[4].'</strong></td>
-                                            <td>'.$ttien.'</td>
+                                            <td>'.$ttien.'đ</td>
                                         </tr>
                                     </tbody>';
                         } 
@@ -160,7 +160,7 @@
                         <tfoot>
                                         <tr class="order_total">
                                             <th>Tổng đơn hàng</th>
-                                            <td><strong>'.$tong.'</strong></td>
+                                            <td><strong>'.$tong.'VNĐ</strong></td>
                                         </tr>
                                     </tfoot>
                                 </table>

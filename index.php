@@ -103,16 +103,14 @@
                     array_push($_SESSION['mycart'],$spadd);
                     
                 }
-                include "view/cart/viewcart.php";
+                include "view/sanpham.php";
                 break; 
             case 'delcart':
-                // $yourURL="index.php?act=viewcart";
-                if(isset($_GET['idcart'])){
-                    array_slice($_SESSION['mycart'],$_GET['idcart'],1); // Mảng xóa từng phần tử array_slice(mảng cần xóa,vị trí cần xóa,xóa bao nhiêu phần tử)
+                if(isset($_GET['idcart'])&&($_GET['idcart'])>=0){
+                    array_splice($_SESSION['mycart'],$_GET['idcart'],1); // Mảng xóa từng phần tử array_slice(mảng cần xóa,vị trí cần xóa,xóa bao nhiêu phần tử)
                 }else{
                     $_SESSION['mycart']=[];
                 }
-                // header("Location: index.php?act=viewcart");
                 echo ("<script>location.href='index.php?act=viewcart'</script>");
                 break;
 
