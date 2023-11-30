@@ -22,4 +22,13 @@ x   <?php
         $sql="update taikhoan set user='".$user."', pass='".$pass."',email='".$email."',address='".$address."',tel='".$tel."' where id=".$id;
         pdo_execute($sql);
     }
+    function delete_taikhoan($id){
+        $sql="delete from taikhoan where id=".$id;
+        pdo_execute($sql);
+    }
+    function loadone_taikhoan($id){
+        $sql="select * from taikhoan where id=".$id;
+        $tk=pdo_query_one($sql);
+        return $tk;
+    }
 ?>

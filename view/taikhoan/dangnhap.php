@@ -34,9 +34,11 @@
                                 <?=$user?>
                             </p>
                             <p>
+                            <?php if($role==1){ ?>
                             <p>
                                 <span>*</span><label><a href="admin/index.php">Đăng nhập ADMIN</a></label>
                             </p>
+                            <?php } ?>
                             <p>
                                 <span>*</span><label><a href="index.php?act=quenmk">Quên mật khẩu</a></label>
                             </p>

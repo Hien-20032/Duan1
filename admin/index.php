@@ -2,6 +2,8 @@
 include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
+include "../model/taikhoan.php";
+include "../model/binhluan.php";
 include "header.php";
 //controller:nguoidieukhien
 
@@ -124,32 +126,37 @@ if (isset($_GET['act'])) {
             $listsanpham=loadall_sanpham();
             include "sanpham/list.php";
             break;
-        // Tài khoản
-        case 'dskh':
-            $listtaikhoan=loadall_taikhoan();
-            include "taikhoan/list.php";
-            break;
-        // đơn hàng
-        case 'listbill':
-            $listbill=loadall_bill(0);
-            include "bill/listbill.php";
-            break; 
 
+            // Tài khoản
         case 'dstk':
             $listtaikhoan=loadall_taikhoan();
             include "taikhoan/list.php";
             break;
-            // đơn hàng
-        case 'listbill':
-            $listbill=loadall_bill(0);
-            include "bill/listbill.php";
-            break; 
 
-            // Tài khoản
-        case 'dskh':
-            $listtaikhoan=loadall_taikhoan();
+        case 'xoatk':
+            if(isset($_GET['id'])&&($_GET['id'])>0){
+                delete_taikhoan($_GET['id']);
+            }
+            $sql="select * from taikhoan order by id desc";
+            $listtaikhoan=pdo_query($sql);
             include "taikhoan/list.php";
             break;
+
+            //bình luận
+        case 'dsbl':
+            $listbinhluan=loadall_binhluan(0);
+            include "binhluan/list.php";
+            break;
+
+        case 'xoabl':
+            if(isset($_GET['id'])&&($_GET['id'])>0){
+                delete_binhluan($_GET['id']);
+            }
+            $sql="select * from binhluan order by id desc";
+            $listbinhluan=pdo_query($sql);
+            include "binhluan/list.php";
+            break;    
+
             // đơn hàng
         case 'listbill':
             if (isset($_POST['kyw'])&&($_POST['kyw']!="")) {
@@ -160,6 +167,7 @@ if (isset($_GET['act'])) {
             $listbill=loadall_bill($kyw,0);
             include "bill/listbill.php";
             break;
+            
         default:
             include "home.php";
             break;
@@ -168,8 +176,6 @@ if (isset($_GET['act'])) {
     include "home.php";
 }
 
-
 include "footer.php";
-
 
 ?>
