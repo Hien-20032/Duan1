@@ -88,6 +88,18 @@
                 include "view/taikhoan/dangnhap.php";
                 break;
 
+            case 'guibinhluan':
+                if (isset($_POST['guibinhluan'])&&($_POST['guibinhluan'])) {
+                    $noidung=$_POST['noidung'];
+                    $idpro=$_POST['idpro'];
+                    $iduser=$_SESSION['user']['id'];
+                    $ngaybinhluan=date('h:i:sa d/m/Y');
+                    insert_binhluan($noidung,$iduser,$idpro,$ngaybinhluan);
+                    // header("Location: ".$_SERVER['HTTP_REFERER']);
+                    //echo ("<script>location.href='index.php?act=sanphamct&idsp=28#'</script>");
+                }
+                echo ("<script>location.href='index.php?act=sanphamct'</script>");
+                break; 
             case 'viewcart':
                 include "view/cart/viewcart.php";
                 break;

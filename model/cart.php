@@ -1,4 +1,12 @@
 <?php
+function loadall_bill($kyw="",$iduser=0){
+    $sql="select * from bill where 1";
+    if($iduser>0) $sql.="AND iduser= ".$iduser;
+    if($kyw!="") $sql.="AND id like '%".$kyw."$'";
+    $sql.="order by id desc";
+    $listbill=pdo_query($sql);
+    return $listbill;
+}
 function viewcart(){
     global $img_path;
     $tong=0;

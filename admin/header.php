@@ -146,7 +146,11 @@
                         <li><a href="../index.php">Trang chủ</a></li>
                         <li><a href="index.php?act=adddm">Danh mục</a></li>
                         <li><a href="index.php?act=addsp">Sản phẩm</a></li>
+<<<<<<< HEAD
                         <li><a href="index.php?act=dskh">Tài khoản</a></li>
+=======
+                        <li><a href="index.php?act=dstk">Tài khoản</a></li>
+>>>>>>> 226a6998a090f6e56afac781b3f59c218372e4ea
                         <li><a href="index.php?act=listbill">Đơn hàng</a></li>
                         <li><a href="index.php?act=dsbl">Bình luận</a></li>
                         <li><a href="index.php?act=thongke">Thống kê</a></li>
