@@ -74,7 +74,7 @@
                     </div>
                     <div class="product_footer d-flex align-items-center">
                         <div class="price_box">
-                            <span class="current_price" >'.$price.'đ</span>
+                            <span class="current_price" >$'.$price.'</span>
                             <span class="old_price">$3200.00</span>
                         </div>
                         <div class="add_to_cart">

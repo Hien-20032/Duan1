@@ -15,7 +15,7 @@
     </div>
     <!--breadcrumbs area end-->
 
-
+    
     <!--Checkout page section-->
     <div class="Checkout_section mt-32">
         <div class="container">
@@ -25,13 +25,13 @@
                     
                 </div>
             </div>
-
+            <!-- <h3>MÃ ĐƠN HÀNG :</h3> -->
             <!-- Thông tin khách hàng -->
             <div class="checkout_form">
                 <div class="row">
+                    
                     <div class="col-lg-6 col-md-6">
                         <form action="#">
-
                         <?php
                         if(isset($_SESSION['user'])){
                             $user=$_SESSION['user']['user'];
@@ -45,7 +45,6 @@
                             $tel="";
                         }
                         ?>
-
                             <h3>Thông tin khách hàng</h3>
                             <div class="row">
 
@@ -73,7 +72,6 @@
                                     <label>Địa chỉ <span>*</span></label>
                                     <input placeholder="House number and street name" type="text" name="address" value="<?=$address?>">
                                 </div>
-                                
                                
                                 <div class="col-lg-6 mb-20">
                                     <label>Điện thoại<span>*</span></label>
@@ -85,9 +83,14 @@
                                     <input type="text" name="email" value="<?=$email?>">
 
                                 </div>
-                                
+                                <div class="col-lg-6 mb-20">
+                                    <label>Phương thức thanh toán <span>*</span></label><?php=$pttt?>
+                                    
+                                </div>
                                 <div class="col-12 mb-20">
-                                   
+                                    
+                                </div>
+                                <div class="col-12 mb-20">
                                     <div id="collapsetwo" class="collapse one" data-parent="#accordion">
                                         <div class="row">
                                             <div class="col-lg-6 mb-20">
@@ -126,11 +129,11 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                
                             </div>
                         </form>
-                        <H2 class="d">ĐẶT HÀNG THÀNH CÔNG!</H2>
                     </div>
+
 
                     <!-- Đơn hàng -->
                     <div class="col-lg-6 col-md-6">
@@ -140,8 +143,8 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Product</th>
-                                            <th>Total</th>
+                                            <th>Sản phẩm</th>
+                                            <th>Tổng</th>
                                         </tr>
                                     </thead>
                     <?php
@@ -152,7 +155,7 @@
                             echo '<tbody>
                                         <tr>
                                             <td>'.$cart[1].'<strong> × '.$cart[4].'</strong></td>
-                                            <td>'.$ttien.'đ</td>
+                                            <td>$'.$ttien.'</td>
                                         </tr>
                                     </tbody>';
                         } 
@@ -160,15 +163,17 @@
                         <tfoot>
                                         <tr class="order_total">
                                             <th>Tổng đơn hàng</th>
-                                            <td><strong>'.$tong.'VNĐ</strong></td>
+                                            <td><strong>$'.$tong.'</strong></td>
                                         </tr>
                                     </tfoot>
                                 </table>
                         </div>';
-                        ?>
+                    ?>
                             <!-- Phương thức thanh toán -->
                             
                         </form>
+                    </div>
+                    <H2 class="d">ĐẶT HÀNG THÀNH CÔNG</H2>
                     </div>
                 </div>
             </div>
