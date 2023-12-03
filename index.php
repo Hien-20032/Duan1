@@ -88,6 +88,18 @@
                 include "view/taikhoan/dangnhap.php";
                 break;
 
+            case 'guibinhluan':
+                if (isset($_POST['guibinhluan'])&&($_POST['guibinhluan'])) {
+                    $noidung=$_POST['noidung'];
+                    $idpro=$_POST['idpro'];
+                    $iduser=$_SESSION['user']['id'];
+                    $ngaybinhluan=date('h:i:sa d/m/Y');
+                    insert_binhluan($noidung,$iduser,$idpro,$ngaybinhluan);
+                    // header("Location: ".$_SERVER['HTTP_REFERER']);
+                    //echo ("<script>location.href='index.php?act=sanphamct&idsp=28#'</script>");
+                }
+                echo ("<script>location.href='index.php?act=sanphamct'</script>");
+                break; 
             case 'viewcart':
                 include "view/cart/viewcart.php";
                 break;
@@ -151,7 +163,11 @@
                 include "view/cart/bill.php";
                 break;
             case 'billconfirm':
+<<<<<<< HEAD
                 if(isset($_POST['dongydathang'])&&($_POST['dongydathang'])>0){
+=======
+                if(isset($_POST['dongydathang'])&&($_POST['dongydathang'])){
+>>>>>>> ac5af3d0e548df32ea2f736aaef77981a01deea9
                     $name=$_POST['user'];
                     $email=$_POST['email'];
                     $address=$_POST['address'];
@@ -161,6 +177,7 @@
                     $tongdonhang=tongdonhang();
                     // tạo bill
                     $idbill=insert_bill($name,$email,$address,$tel,$pttt,$ngaydathang,$tongdonhang);
+<<<<<<< HEAD
             
                     foreach ($_SESSION['mycart'] as $cart) {
                         insert_cart($_SESSION['user']['id'],$cart[0],$cart[2],$cart[1],$cart[3],$cart[4],$cart[5],$idbill);
@@ -184,6 +201,31 @@
                 }
                 break;
                 
+=======
+                    
+                    // insert into cart : $_SESSION['mycart'] & idbill
+                    if(isset($_SESSION['mycart'])&&(count($_SESSION['mycart'])>0)){
+                        foreach ($_SESSION['mycart'] as $cart) {
+                            addtocart($idbill,$cart[0],$cart[2],$cart[1],$cart[3],$cart[4],$cart[5]);
+                        }
+                    }   
+
+                    // $_SESSION['cart']=[];
+                }
+                // $bill=loadone_bill($idbill);
+                // $billct=loadall_cart($idbill);
+
+                // if(isset($_POST['dongydathang'])&&($_POST['dongydathang'])){
+                //     $ngaydathang=date('h:i:sa d/m/Y');
+                //     $tongdonhang=tongdonhang();
+
+                //     $spadd=[$ngaydathang,$tongdonhang];
+                //     array_push($_SESSION['mybill'],$spadd);
+                    
+                // }
+                include "view/cart/billconfirm.php";
+                break;
+>>>>>>> ac5af3d0e548df32ea2f736aaef77981a01deea9
             case 'mybill':
                 include "view/cart/mybill.php";
                 break;

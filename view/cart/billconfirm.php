@@ -14,11 +14,15 @@
         </div>
     </div>
     <!--breadcrumbs area end-->
+<<<<<<< HEAD
 <?php
     if(isset($bill)&&(is_array($bill))){
         extract($bill);
     }
 ?>
+=======
+
+>>>>>>> ac5af3d0e548df32ea2f736aaef77981a01deea9
     
     <!--Checkout page section-->
     <div class="Checkout_section mt-32">
@@ -29,16 +33,36 @@
                     
                 </div>
             </div>
+<<<<<<< HEAD
             <li>MÃ ĐƠN HÀNG :<?php=$bill['id']?></li>
             <li>NGÀY ĐẶT HÀNG :<?php=$bill['ngaydathang']?></li>
             <li>TỔNG ĐƠN HÀNG :<?php=$bill['total']?></li>
 
+=======
+            <!-- <h3>MÃ ĐƠN HÀNG :</h3> -->
+>>>>>>> ac5af3d0e548df32ea2f736aaef77981a01deea9
             <!-- Thông tin khách hàng -->
             <div class="checkout_form">
                 <div class="row">
                     
                     <div class="col-lg-6 col-md-6">
                         <form action="#">
+<<<<<<< HEAD
+=======
+                        <?php
+                        if(isset($_SESSION['user'])){
+                            $user=$_SESSION['user']['user'];
+                            $address=$_SESSION['user']['address'];
+                            $email=$_SESSION['user']['email'];
+                            $tel=$_SESSION['user']['tel'];
+                        }else{
+                            $user="";
+                            $address="";
+                            $email="";
+                            $tel="";
+                        }
+                        ?>
+>>>>>>> ac5af3d0e548df32ea2f736aaef77981a01deea9
                             <h3>Thông tin khách hàng</h3>
                             <div class="row">
 
@@ -77,7 +101,11 @@
 
                                 </div>
                                 <div class="col-lg-6 mb-20">
+<<<<<<< HEAD
                                     <label>Phương thức thanh toán <span>*</span></label><?=$bill['bill_pttt']?>
+=======
+                                    <label>Phương thức thanh toán <span>*</span></label><?php=$pttt?>
+>>>>>>> ac5af3d0e548df32ea2f736aaef77981a01deea9
                                     
                                 </div>
                                 <div class="col-12 mb-20">
@@ -141,7 +169,30 @@
                                         </tr>
                                     </thead>
                     <?php
+<<<<<<< HEAD
                         bill_chi_tiet($billct);
+=======
+                        $tong=0;
+                        foreach ($_SESSION['mycart'] as $cart) {
+                            $ttien=$cart[3]*$cart[4];
+                            $tong+=$ttien;
+                            echo '<tbody>
+                                        <tr>
+                                            <td>'.$cart[1].'<strong> × '.$cart[4].'</strong></td>
+                                            <td>$'.$ttien.'</td>
+                                        </tr>
+                                    </tbody>';
+                        } 
+                        echo'
+                        <tfoot>
+                                        <tr class="order_total">
+                                            <th>Tổng đơn hàng</th>
+                                            <td><strong>$'.$tong.'</strong></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                        </div>';
+>>>>>>> ac5af3d0e548df32ea2f736aaef77981a01deea9
                     ?>
                             <!-- Phương thức thanh toán -->
                             

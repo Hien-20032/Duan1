@@ -40,10 +40,17 @@
                                     viewcart();
                                     ?>
                 <div class="form-group">
+<<<<<<< HEAD
                     <a href="index.php?act=delcart" ><input class="form-button" type="button" value="XÓA GIỎ HÀNG"></a> 
                     <a href="index.php?act=sanpham"><input class="form-button" type="button" value="TIẾP TỤC MUA HÀNG"></a>
                     <a href="index.php?act=bill"><input class="form-button" type="button" value="ĐẶT HÀNG"></a> 
                     <!-- <a href="index.php?act=addtocart"><input class="form-button" type="submit" value="CẬP NHẬT"></a>  -->
+=======
+                    <!-- <a href="index.php?act=capnhat"><input class="form-button" type="button" value="CẬP NHẬT"></a>  -->
+                    <a href="index.php?act=delcart" ><input class="form-button" type="button" value="XÓA GIỎ HÀNG"></a> 
+                    <a href="index.php?act=sanpham"><input class="form-button" type="button" value="TIẾP TỤC MUA HÀNG"></a>
+                    <a href="index.php?act=bill"><input class="form-button" type="button" value="ĐẶT HÀNG"></a> 
+>>>>>>> ac5af3d0e548df32ea2f736aaef77981a01deea9
                 </div>
                 <!--coupon code area end-->
             </form>

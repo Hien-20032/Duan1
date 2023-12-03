@@ -33,7 +33,7 @@
                         <td>'.$address.'</td>
                         <td>'.$tel.'</td>
                         <td>'.$role.'</td>
-                        <td><a href="'.$suatk.'"><input type="button" value="Sửa"></a> <a href= "'.$xoatk.'"><input type="button" value="Xóa"></a></td>
+                        <td> <a href= "'.$xoatk.'"><input type="button" value="Xóa"></a></td>
                       </tr>';
             }
             ?>

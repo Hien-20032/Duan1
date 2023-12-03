@@ -189,10 +189,17 @@
                             
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div class="form-group">
                         <a href="index.php?act=billconfirm"><input class="form-button" type="button" value="ĐỒNG Ý ĐẶT HÀNG" name="dongydathang"></a>
                     </div>
                 </form>
+=======
+                </div>
+                <div class="form-group">
+                    <a href="index.php?act=billconfirm"><input class="form-button" type="button" value="ĐỒNG Ý ĐẶT HÀNG" name="dongydathang"></a>
+                </div>
+>>>>>>> ac5af3d0e548df32ea2f736aaef77981a01deea9
             </div>
         </div>
     </div>

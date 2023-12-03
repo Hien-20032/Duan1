@@ -1,4 +1,12 @@
 <?php
+function loadall_bill($kyw="",$iduser=0){
+    $sql="select * from bill where 1";
+    if($iduser>0) $sql.="AND iduser= ".$iduser;
+    if($kyw!="") $sql.="AND id like '%".$kyw."$'";
+    $sql.="order by id desc";
+    $listbill=pdo_query($sql);
+    return $listbill;
+}
 function viewcart(){
     global $img_path;
     $tong=0;
@@ -15,7 +23,11 @@ function viewcart(){
                         <td class="product_thumb"><a href="#"><img src="'.$hinh.'" alt=""></a></td>
                         <td class="product_name"><a href="#">'.$cart[1].'</a></td>
                         <td class="product-price">$'.$cart[3].'</td>
+<<<<<<< HEAD
                         <td class="product_quantity"><input type="number" value="'.$cart[4].'" name="sl"></td>
+=======
+                        <td class="product_quantity"><input type="number" value="'.$cart[4].'"></td>
+>>>>>>> ac5af3d0e548df32ea2f736aaef77981a01deea9
                         <td class="product_total">$'.$ttien.'</td>
                     </tr>
         </tbody>
@@ -43,6 +55,7 @@ $i++;
             </div>';
 }
 
+<<<<<<< HEAD
 function bill_chi_tiet($listbill){
     $tong=0;
     foreach ($listbill as $cart) {
@@ -64,6 +77,29 @@ function bill_chi_tiet($listbill){
             </table>
     </div>';
 }
+=======
+// function bill_chi_tiet($listbill){
+//     $tong=0;
+//     foreach ($listbill as $cart) {
+//         $tong+=$cart['thanhtien'];
+//         echo '<tbody>
+//                     <tr>
+//                         <td>'.$cart['name'].'<strong> × '.$cart['soluong'].'</strong></td>
+//                         <td>$'.$cart['thanhtien'].'</td>
+//                     </tr>
+//                 </tbody>';
+//     } 
+//     echo'
+//     <tfoot>
+//                     <tr class="order_total">
+//                         <th>Tổng đơn hàng</th>
+//                         <td><strong>$'.$tong.'</strong></td>
+//                     </tr>
+//                 </tfoot>
+//             </table>
+//     </div>';
+// }
+>>>>>>> ac5af3d0e548df32ea2f736aaef77981a01deea9
 
 function tongdonhang(){
 $tong=0;
@@ -75,6 +111,7 @@ return $tong;
 }
 
 function insert_bill($name,$email,$address,$tel,$pttt,$ngaydathang,$tongdonhang){
+<<<<<<< HEAD
     // $conn=connectdb();
     $sql="insert into bill(bill_user,bill_email,bill_address,bill_tel,bill_pttt,ngaydathang,total) values('$name','$email','$address','$tel','$pttt','$ngaydathang','$tongdonhang')";
     // $conn->exec($sql);
@@ -88,6 +125,20 @@ function insert_cart($iduser,$idpro,$img,$name,$price,$soluong,$thanhtien,$idbil
     $sql="insert into cart(iduser,idpro,img,name,price,soluong,thanhtien,idbill) values('$iduser','$idpro','$img','$name','$price','$soluong','$thanhtien','$idbill')";
     // $conn->exec($sql);
     return pdo_execute($sql);
+=======
+    $conn=connectdb();
+    $sql="INSERT INTO bill (bill_user,bill_email,bill_address,bill_tel,bill_pttt,ngaydathang,total) values ('".$name."','".$email."','".$address."','".$tel."','".$pttt."','".$ngaydathang."','".$tongdonhang."')";
+    $conn->exec($sql);
+    $last_id = $conn->lastInsertId();
+    return $last_id;
+}
+
+function insert_cart($iduser,$idpro,$img,$name,$price,$soluong,$thanhtien,$idbill){
+    $conn=connectdb();
+    $sql="INSERT INTO cart (iduser,idpro,img,name,price,soluong,thanhtien,idbill) values ('".$iduser."','".$idpro."','".$img."','".$name."','".$price."','".$soluong."','".$thanhtien."','".$idbill."')";
+    // return pdo_execute($sql);
+    $conn->exec($sql);
+>>>>>>> ac5af3d0e548df32ea2f736aaef77981a01deea9
 }
 
 // function loadone_bill($id){
@@ -101,6 +152,7 @@ function insert_cart($iduser,$idpro,$img,$name,$price,$soluong,$thanhtien,$idbil
 //     $bill=pdo_query($sql);
 //     return $bill;
 // }
+<<<<<<< HEAD
 function loadone_bill($id){
     $sql = "select * from bill where id = :id";
     $params = array(':id' => $id);
@@ -115,6 +167,8 @@ function loadall_cart($idbill){
     return $cart;
 }
 
+=======
+>>>>>>> ac5af3d0e548df32ea2f736aaef77981a01deea9
 
 // function loadall_cart_count($idbill){
 //     $sql="select * from cart where idbill= ".$idbill;
