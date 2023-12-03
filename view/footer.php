@@ -229,47 +229,14 @@
 
 
     <!--news letter popup start-->
-    <div class="newletter-popup">
-        <div id="boxes" class="newletter-container">
-            <div id="dialog" class="window">
-                <div id="popup2">
-                    <span class="b-close"><span>close</span></span>
-                </div>
-                <div class="box">
-                    <div class="newletter-title">
-                        <h2>Newsletter</h2>
-                    </div>
-                    <div class="box-content newleter-content">
-                        <label class="newletter-label">Enter your email address to subscribe our notification of our new post &amp; features by email.</label>
-                        <div id="frm_subscribe">
-                            <form name="subscribe" id="subscribe_popup">
-                                <!-- <span class="required">*</span><span>Enter you email address here...</span>-->
-                                <input type="text" value="" name="subscribe_pemail" id="subscribe_pemail" placeholder="Enter you email address here...">
-                                <input type="hidden" value="" name="subscribe_pname" id="subscribe_pname">
-                                <div id="notification"></div>
-                                <a class="theme-btn-outlined" onclick="email_subscribepopup()"><span>Subscribe</span></a>
-                            </form>
-                            <div class="subscribe-bottom">
-                                <input type="checkbox" id="newsletter_popup_dont_show_again">
-                                <label for="newsletter_popup_dont_show_again">Don't show this popup again</label>
-                            </div>
-                        </div>
-                        <!-- /#frm_subscribe -->
-                    </div>
-                    <!-- /.box-content -->
-                </div>
-            </div>
-
-        </div>
-        <!-- /.box -->
-    </div>
-    <!--news letter popup start-->
+    
 
 
 
 
 <!-- JS
 ============================================ -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <!--jquery min js-->
 <script src="assets/js/vendor/jquery-3.4.1.min.js"></script>
 <!--popper min js-->
@@ -298,7 +265,37 @@
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
 
+<!-- slideshow -->
+<script>
+    let slideIndex = 1;
+showSlides(slideIndex);
 
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
 
 </body>
 

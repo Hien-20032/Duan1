@@ -67,8 +67,7 @@
                             <div class="product_variant quantity">
                                 <label>quantity</label>
                                 <input min="1" max="100" value="1" type="number">
-                                <button class="button" type="submit">add to cart</button>
-
+                                <a href="index.php?act=addtocart"><button class="button" type="submit">add to cart</button></a>
                             </div>
                             <div class=" product_d_action">
                                 <ul>

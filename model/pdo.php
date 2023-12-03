@@ -11,6 +11,7 @@ function pdo_get_connection(){
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $conn;
 }
+
 /**
  * Thực thi câu lệnh sql thao tác dữ liệu (INSERT, UPDATE, DELETE)
  * @param string $sql câu lệnh sql
@@ -32,6 +33,7 @@ function pdo_execute($sql){
     }
 }
 
+//bill
 function pdo_execute_return_lastInsertId($sql){
     $sql_args = array_slice(func_get_args(), 1);
     try{
@@ -39,14 +41,19 @@ function pdo_execute_return_lastInsertId($sql){
         $stmt = $conn->prepare($sql);
         $stmt->execute($sql_args);
         return $conn->lastInsertId();
+
+        // $last_id = $conn->lastInsertId();
+
+        // return $last_id;
     }
     catch(PDOException $e){
         throw $e;
-    }
+    } 
     finally{
         unset($conn);
     }
 }
+
 
 /**
  * Thực thi câu lệnh sql truy vấn dữ liệu (SELECT)

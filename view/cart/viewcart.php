@@ -19,7 +19,7 @@
     <!--shopping cart area start -->
     <div class="shopping_cart_area mt-32">
         <div class="container">
-            <form action="#">
+            <form action="index.php?act=addtocart">
                 <div class="row">
                     <div class="col-12">
                         <div class="table_desc">
@@ -40,7 +40,10 @@
                                     viewcart();
                                     ?>
                 <div class="form-group">
-                    <a href="index.php?act=bill"><input class="form-button" type="button" value="ĐẶT HÀNG"></a> <a href="index.php?act=delcart" ><input class="form-button" type="button" value="XÓA GIỎ HÀNG"></a>
+                    <a href="index.php?act=delcart" ><input class="form-button" type="button" value="XÓA GIỎ HÀNG"></a> 
+                    <a href="index.php?act=sanpham"><input class="form-button" type="button" value="TIẾP TỤC MUA HÀNG"></a>
+                    <a href="index.php?act=bill"><input class="form-button" type="button" value="ĐẶT HÀNG"></a> 
+                    <!-- <a href="index.php?act=addtocart"><input class="form-button" type="submit" value="CẬP NHẬT"></a>  -->
                 </div>
                 <!--coupon code area end-->
             </form>

@@ -14,9 +14,9 @@ function viewcart(){
                         <td class="product_remove">'.$xoasp.'</td>
                         <td class="product_thumb"><a href="#"><img src="'.$hinh.'" alt=""></a></td>
                         <td class="product_name"><a href="#">'.$cart[1].'</a></td>
-                        <td class="product-price">'.$cart[3].'đ</td>
-                        <td class="product_quantity"><input type="number" value="'.$cart[4].'"></td>
-                        <td class="product_total">'.$ttien.'đ</td>
+                        <td class="product-price">$'.$cart[3].'</td>
+                        <td class="product_quantity"><input type="number" value="'.$cart[4].'" name="sl"></td>
+                        <td class="product_total">$'.$ttien.'</td>
                     </tr>
         </tbody>
         <table>
@@ -28,28 +28,41 @@ $i++;
     } 
     echo '<div class="coupon_area">
                 <div class="row">
+                    
                     <div class="col-lg-6 col-md-6">
-                        <div class="coupon_code left">
-                            <h3>Phiếu mua hàng</h3>
-                            <div class="coupon_inner">
-                                <p>Nhập mã phiếu giảm giá nếu bạn có.</p>
-                                <input placeholder="Coupon code" type="text">
-                                <button type="submit">Áp dụng phiếu giảm giá</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="coupon_code right">
+                        <div class="coupon_code">
                             <h3>Tổng đơn hàng</h3>
                             <div class="coupon_inner">                                                                
                                 <div class="cart_subtotal">                                                       
-                                    <p class="cart_amount">'.$tong.' VNĐ</p>
+                                    <p class="cart_amount">$'.$tong.'</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>';
+}
+
+function bill_chi_tiet($listbill){
+    $tong=0;
+    foreach ($listbill as $cart) {
+        $tong+=$cart['thanhtien'];
+        echo '<tbody>
+                    <tr>
+                        <td>'.$cart['name'].'<strong> × '.$cart['soluong'].'</strong></td>
+                        <td>$'.$cart['thanhtien'].'</td>
+                    </tr>
+                </tbody>';
+    } 
+    echo'
+    <tfoot>
+                    <tr class="order_total">
+                        <th>Tổng đơn hàng</th>
+                        <td><strong>$'.$tong.'</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+    </div>';
 }
 
 function tongdonhang(){
@@ -62,18 +75,58 @@ return $tong;
 }
 
 function insert_bill($name,$email,$address,$tel,$pttt,$ngaydathang,$tongdonhang){
-    $sql="insert into bill(bill_name,bill_email,bill_address,bill_tel,bill_pttt,ngaydathang,total) values('$name','$email','$address','$tel','$pttt','$ngaydathang','$tongdonhang')";
+    // $conn=connectdb();
+    $sql="insert into bill(bill_user,bill_email,bill_address,bill_tel,bill_pttt,ngaydathang,total) values('$name','$email','$address','$tel','$pttt','$ngaydathang','$tongdonhang')";
+    // $conn->exec($sql);
+    // $last_id = $conn->lastInsertId();
+    // return $last_id;
     return pdo_execute_return_lastInsertId($sql);
 }
 
 function insert_cart($iduser,$idpro,$img,$name,$price,$soluong,$thanhtien,$idbill){
+    // $conn=connectdb();
     $sql="insert into cart(iduser,idpro,img,name,price,soluong,thanhtien,idbill) values('$iduser','$idpro','$img','$name','$price','$soluong','$thanhtien','$idbill')";
+    // $conn->exec($sql);
     return pdo_execute($sql);
 }
 
+// function loadone_bill($id){
+//     $sql="select * from bill where id= ".$id;
+//     $bill=pdo_query_one($sql);
+//     return $bill;
+// }
+
+// function loadall_cart($idbill){
+//     $sql="select * from cart where idbill= ".$idbill;
+//     $bill=pdo_query($sql);
+//     return $bill;
+// }
 function loadone_bill($id){
-    $sql="select * from bill where id= ".$id;
-    $bill=pdo_query_one($sql);
+    $sql = "select * from bill where id = :id";
+    $params = array(':id' => $id);
+    $bill = pdo_query_one($sql, $params);
     return $bill;
 }
-?>
+
+function loadall_cart($idbill){
+    $sql = "SELECT * FROM cart WHERE idbill = :idbill";
+    $params = array(':idbill' => $idbill);
+    $cart = pdo_query($sql, $params);
+    return $cart;
+}
+
+
+// function loadall_cart_count($idbill){
+//     $sql="select * from cart where idbill= ".$idbill;
+//     $bill=pdo_query($sql);
+//     return sizeof($bill);
+// }
+
+// function loadall_bill($iduser){
+//     $sql="select * from bill where 1";
+//     if($idsuer>0) $sql.=" AND idser=".$iduser;
+//     $sql.=" order by id desc";
+//     $listbill=pdo_query($sql);
+//     return $listbill;
+// }
+ ?>

@@ -31,7 +31,7 @@
     <!-- Plugins CSS -->
     <link rel="stylesheet" href="assets/css/plugins.css">
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="view/css/style.css">
     <style>
         .form-group{
         margin: 10px 0px;
@@ -134,6 +134,7 @@
             grid-template-columns:1fr 1fr 1fr;
             gap:20px;
         }
+        
     </style>
     <script src="../assets/js/vendor/modernizr-3.7.1.min.js"></script>
 </head>
@@ -202,7 +203,7 @@
                             </div>
                             <div class="middel_right_info">
                                 <div class="header_wishlist">
-                                    <a href=""><span class="lnr lnr-heart"></span> </a>
+                                    <a href="index.php?act=mybill"><span class="lnr lnr-heart"></span> </a>
                                 </div>
                                 <div class="mini_cart_wrapper">
                                     <a href="index.php?act=viewcart"><span class="lnr lnr-cart"></span> </a>
